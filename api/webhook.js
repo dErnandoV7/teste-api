@@ -4,6 +4,10 @@ const serverless = require('serverless-http');
 
 app.use(express.json());
 
+app.get('/', (req, res) => {
+    res.send('Webhook Server está funcionando!');
+});
+
 app.post('/webhook', (req, res) => {
   console.log('Webhook recebido:', req.body);
   res.status(200).send('Webhook processado com sucesso!');
