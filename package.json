@@ -6,7 +6,11 @@
         "start": "node api/webhook.js"
     },
     "dependencies": {
+        "crypto": "^1.0.1",
+        "dotenv": "^16.0.0",
         "express": "^5.1.0",
+        "firebase": "^9.0.1",
+        "nodemailer": "^7.0.3",
         "serverless-http": "^3.2.0"
     }
 }
