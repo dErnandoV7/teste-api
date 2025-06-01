@@ -63,7 +63,7 @@ module.exports = async (req, res) => {
         console.error("Falha ao criar novo usuário:", createRes.message || createResAcc.error);
         return res.status(500).json({ message: 'Falha ao criar novo usuário.' });
       }
-      
+      await updatePackAcess(id_product)
       console.log(`Senha enviada por e-mail e salva para ${email}`);
       return res.status(200).json({ message: 'Novo usuário criado e dados enviados.' });
     }
