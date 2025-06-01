@@ -20,7 +20,7 @@ Sua senha de acesso foi gerada com sucesso. Você pode utilizá-la juntamente co
 E-mail: ${email}
 Senha: ${senha}
 
-Caso tenha alguma dúvida ou precise de assistência, não hesite em nos contatar.
+Caso tenha alguma dúvida ou precise de assistência, não hesite em contatar.
 
 Atenciosamente,
 WILL`
