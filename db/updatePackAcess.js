@@ -5,7 +5,7 @@ const db = getFirestore(app);
 
 const updatePackAcess = async (productIdFromWebhook) => {
     try {
-        const packsCollectionRef = collection(db, 'packs');
+        const packsCollectionRef = collection(db, 'existentPacks');
         
         const q = query(packsCollectionRef, where('idpack', '==', productIdFromWebhook));
         
