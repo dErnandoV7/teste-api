@@ -4,7 +4,7 @@ const app = require('./configdb');
 const db = getFirestore(app);
 
 const userExists = async (email) => {
-    const usersRef = collection(db, 'Usuarios');
+    const usersRef = collection(db, 'users');
     const q = query(usersRef, where('email', '==', email));
     const snapshot = await getDocs(q);
     return !snapshot.empty; 
@@ -19,7 +19,7 @@ const createUser = async (name, email, password, id_product) => {
     };
 
     try {
-        const docRef = await addDoc(collection(db, 'Usuarios'), data);
+        const docRef = await addDoc(collection(db, 'users'), data);
         return { success: true, message: 'Usuário criado no Firestore!', docId: docRef.id };
     } catch (error) {
         return { success: false, message: 'Erro ao criar usuário no Firestore: ' + error.message };

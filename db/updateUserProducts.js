@@ -5,7 +5,7 @@ const db = getFirestore(app);
 
 const updateUserProducts = async (email, newProductId) => {
     try {
-        const usersRef = collection(db, 'Usuarios');
+        const usersRef = collection(db, 'users');
         const q = query(usersRef, where('email', '==', email));
         const snapshot = await getDocs(q);
 
