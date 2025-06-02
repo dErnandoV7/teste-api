@@ -17,7 +17,7 @@ const updateUserProducts = async (email, newProductId) => {
         const userDocRef = userDoc.ref; 
 
         await updateDoc(userDocRef, {
-            products: arrayUnion(newProductId)
+            packs: arrayUnion(newProductId)
         });
 
         return { success: true, message: `Produtos do usuário ${email} atualizados com sucesso!` };

@@ -10,12 +10,12 @@ const userExists = async (email) => {
     return !snapshot.empty; 
 };
 
-const createUser = async (name, email, password, id_product) => {
+const createUser = async (name, email, id_product, id) => {
     const data = {
         name,
         email,
-        password, 
-        products: [id_product],
+        packs: [id_product],
+        id,
     };
 
     try {
