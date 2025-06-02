@@ -23,6 +23,7 @@ const createUser = async (name, email, id_product, senha) => {
         email,
         packs: [id_product],
         id: uid,
+        downloads: 0,
     };
 
     
