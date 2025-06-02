@@ -4,7 +4,6 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 const { createUser, userExists } = require("../db/createUser");
-const createUserAccount = require("../db/createUserAccount");
 const sendEmail = require("./sendEmail");
 const updateUserProducts = require("../db/updateUserProducts");
 const updatePackAcess = require("../db/updatePackAcess"); // NOVO: Importar a função de atualização de acesso
@@ -39,30 +38,17 @@ module.exports = async (req, res) => {
     } else {
       console.log(`Novo usuário detectado: ${email}. Criando conta.`);
       const senha = crypto.randomBytes(4).toString("hex");
-      
-      const gerarIdCurto = (tamanho = 12) => {
-        const caracteres =
-          "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        let id = "";
-        for (let i = 0; i < tamanho; i++) {
-          const randomIndex = Math.floor(Math.random() * caracteres.length);
-          id += caracteres[randomIndex];
-        }
-        return id;
-      }
 
       await sendEmail(email, senha);
-      const idUser = gerarIdCurto()
-      const createResAcc = await createUserAccount(email, senha);
-      const createRes = await createUser(name, email, id_product, createResAcc.user.uid);
-      if (createRes.success && createResAcc.success) {
+      const createRes = await createUser(name, email, id_product, senha);
+      if (createRes.success) {
         console.log(
           "Novo usuário criado com sucesso no Firestore e Authentication!"
         );
       } else {
         console.error(
           "Falha ao criar novo usuário:",
-          createRes.message || createResAcc.error
+          createRes.message
         );
         return res
           .status(500)
