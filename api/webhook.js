@@ -54,7 +54,7 @@ module.exports = async (req, res) => {
       await sendEmail(email, senha);
       const idUser = gerarIdCurto()
       const createResAcc = await createUserAccount(email, senha);
-      const createRes = await createUser(name, email, id_product, createResAcc.uid);
+      const createRes = await createUser(name, email, id_product, createResAcc.user.uid);
       if (createRes.success && createResAcc.success) {
         console.log(
           "Novo usuário criado com sucesso no Firestore e Authentication!"
