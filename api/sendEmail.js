@@ -3,19 +3,21 @@ const nodemailer = require('nodemailer');
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'vinicius11112006@gmail.com',
-        pass: 'edrw bhey bfll nycg'
+        user: 'artistaoficial01@gmail.com',
+        pass: 'sfyt kijz bnvy brms'
     }
 });
 
 async function sendEmail(email, senha) {
     const mailOptions = {
-        from: 'vinicius11112006@gmail.com',
+        from: 'artistaoficial01@gmail.com',
         to: email,
         subject: 'Sua senha de acesso',
         text: `Olá,
 
-Sua senha de acesso foi gerada com sucesso. Você pode utilizá-la juntamente com o seu e-mail para acessar a plataforma.
+Sua senha de acesso foi gerada com sucesso. Você pode utilizá-la juntamente com o seu e-mail para acessar a plataforma no Link a seguir:
+
+Link: link
 
 E-mail: ${email}
 Senha: ${senha}
